@@ -15,3 +15,4 @@ class Jugador:
 
     def mostrar_digicoins(self):
         print("Tienes " + str(self.digicoins) + " digicoins")
+                 
