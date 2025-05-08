@@ -7,4 +7,3 @@ class digipymon:
         self.nivel = nivel
     def __str__(self):
         return f"Nombre: {self.nombre}, vida: {self.vida}, ataque: {self.ataque}, tipo: {self.nivel}, nivel"
-    print("Amame jose si lees esto")
