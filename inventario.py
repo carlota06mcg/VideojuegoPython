@@ -1,7 +1,7 @@
 from inventario import jugador
 class inventario:
     def __init__(self):
-        self.objetos = []
+        self.objetos = {}
 
     def añadir_objeto(self, nombre, cantidad)
         if nombre in self.objetos:
