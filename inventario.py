@@ -7,5 +7,5 @@ class inventario:
         if nombre in self.objetos:
             self.objetos = self.cantidad + 1
         else:
-            self.objetos = self.nombr
+            self.objetos = self.nombre
             
