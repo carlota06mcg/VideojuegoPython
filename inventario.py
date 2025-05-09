@@ -12,8 +12,8 @@ class inventario:
     def usar_objeto(self, nombre[])
         if nombre in self.objetos:
             if cantidad >= 0:
-                cantidad.remove(nombre)
+                cantidad.remove(self.nombre)
             elif:
-                self.objeto[nombre] - 1
+                self.objeto[self.nombre] - 1
             else:
                 print("No tienes este objeto")
