@@ -6,3 +6,6 @@ def menu():
     print("Introduce 5 si quieres consultar el inventario")
     print("Introduce 4 si quieres consultar digipymon")
     print("Introduce 5 si quieres salir")
+
+def digishop(Jugador, Inventario):
+
