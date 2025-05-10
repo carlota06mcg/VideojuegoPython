@@ -1,3 +1,5 @@
+import time
+
 def menu():
     print("Introduce 1 si quieres buscar un digipymon")
     print("Introduce 2 si quieres luchar contra un entrenador")
@@ -7,5 +9,14 @@ def menu():
     print("Introduce 4 si quieres consultar digipymon")
     print("Introduce 5 si quieres salir")
 
-def digishop(Jugador, Inventario):
+def digishop(jugador, inventario): 
+    print("Bienvenido a la DigiShop {jugador.nombre}")
+    print("Tienes {jugador.monedas} monedas")  
+    time.sleep(3)
+
+    print("Pulse 1 si quieres comprar digipyballs: 5 digicoins  ")
+    print("Pulse 1 si quieres comprar pocion: 3 digicoins  ")
+    print("Pulse 1 si quieres comprar anabolizantes: 4 digicoins  ")
+
+
 
