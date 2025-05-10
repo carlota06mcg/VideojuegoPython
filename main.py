@@ -1,5 +1,4 @@
 import time
-
 def menu():
     print("Introduce 1 si quieres buscar un digipymon")
     print("Introduce 2 si quieres luchar contra un entrenador")
@@ -13,10 +12,22 @@ def digishop(jugador, inventario):
     print("Bienvenido a la DigiShop {jugador.nombre}")
     print("Tienes {jugador.monedas} monedas")  
     time.sleep(3)
-
-    print("Pulse 1 si quieres comprar digipyballs: 5 digicoins  ")
-    print("Pulse 1 si quieres comprar pocion: 3 digicoins  ")
-    print("Pulse 1 si quieres comprar anabolizantes: 4 digicoins  ")
+    salir = False
+    jugador1 = jugador()
+    inventario1 = inventario()
+    while salir == False:
+        print("Pulse 1 si quieres comprar digipyballs: 5 digicoins  ")
+        print("Pulse 2 si quieres comprar pocion: 3 digicoins  ")
+        print("Pulse 3 si quieres comprar anabolizantes: 4 digicoins  ")
+        print("Pulse 4 si quieres salir")
+        opcion = input("Elige una opcion")
+        if opcion == 1:
+            if jugador1.digicoins >= 5:
+                jugador1.digicoins - 5
+                inventario1.añadir_objetos.append("Digiball", 1)
+                print("Has comprado una Digiball")
+            else:
+                print("No tienes suficientes monedas")
 
 
 
