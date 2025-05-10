@@ -1,5 +1,5 @@
 import random
-class listaNombres:
+class ListaNombres:
     def __init__(self):
         self.lista_nombres_digipymon = ["charmander", "squirtle", "bulbasaur", "chicorita", "cindaquil", "totodile", "treecko", "totus", "mudkip", "jigglypuff", "kirby", "sylveon", "chansey", "espeon", "eevee", "krookodile", "grookey", "piplup", "skitty"]
         self.lista_nombres_entrenadores = ["Ash", "Mitsy", "Taylor", "Cynthia", "Serena", "Dawn", "Iris", "Erika","Skyla","Roxanne","Sabrina","Serena", "Clair", "Valerie", "Gardenia","Wiona","Flannery", "Synthia", "Nyara", "Yurika"]

@@ -1,18 +1,18 @@
-from inventario import jugador
-class inventario:
+from jugador import Jugador
+class Inventario:
     def __init__(self):
-        self.objetos = []
+        self.objetos = {}
 
-    def añadir_objeto(self, nombre, cantidad)
+    def añadir_objeto(self, nombre, cantidad):
         if nombre in self.objetos:
-            self.objetos = self.cantidad + 1
+            self.objetos = self. + 1
         else:
             self.objetos = self.nombre
     
-    def usar_objeto(self, nombre[])
+    def usar_objeto(self, nombre)
         if nombre in self.objetos:
             if cantidad >= 0:
-                cantidad.remove(self.nombre)
+                cantidad.remove[self.nombre]
             elif:
                 self.objeto[self.nombre] - 1
             else:

@@ -1,4 +1,4 @@
-class digipymon:
+class Digipymon:
     def __init__(self, nombre, vida, ataque, tipo, nivel):
         self.nombre = nombre
         self.vida = vida
