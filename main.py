@@ -29,5 +29,31 @@ def digishop(jugador, inventario):
             else:
                 print("No tienes suficientes monedas")
 
+        if opcion == 2:
+            if jugador1.digicoins >= 3:
+                jugador1.digicoins - 3
+                inventario1.añadir_objetos.append("Pocion", 1)
+                print("Has comprado una pocion")
+            else:
+                print("No tienes suficiente dinero")
+
+        if opcion == 3:
+            if jugador1.digicoins >= 4:
+                jugador1.digicoins - 4
+                inventario1.añadir_objetos.append("Anabolizantes")
+                print("Has comprado un anabolizante")
+            else:
+                print("No tienes suficiente dinero")
+        if opcion == 4:
+            print("Saliendo del juego...")
+            time.sleep(3)
+            salir = True
+        
+
+
+
+
+
+
 
 
