@@ -20,8 +20,8 @@ def digishop(jugador, inventario):
         print("Pulse 2 si quieres comprar pocion: 3 digicoins  ")
         print("Pulse 3 si quieres comprar anabolizantes: 4 digicoins  ")
         print("Pulse 4 si quieres salir")
-        opcion = input("Elige una opcion")
-        if opcion == 1:
+        opcion_digishop = input("Elige una opcion")
+        if opcion_digishop == 1:
             if jugador1.digicoins >= 5:
                 jugador1.digicoins - 5
                 inventario1.añadir_objetos.append("Digiball", 1)
@@ -29,7 +29,7 @@ def digishop(jugador, inventario):
             else:
                 print("No tienes suficientes monedas")
 
-        if opcion == 2:
+        if opcion_digishop == 2:
             if jugador1.digicoins >= 3:
                 jugador1.digicoins - 3
                 inventario1.añadir_objetos.append("Pocion", 1)
@@ -37,18 +37,22 @@ def digishop(jugador, inventario):
             else:
                 print("No tienes suficiente dinero")
 
-        if opcion == 3:
+        if opcion_digishop == 3:
             if jugador1.digicoins >= 4:
                 jugador1.digicoins - 4
                 inventario1.añadir_objetos.append("Anabolizantes")
                 print("Has comprado un anabolizante")
             else:
                 print("No tienes suficiente dinero")
-        if opcion == 4:
+        if opcion_digishop == 4:
             print("Saliendo del juego...")
             time.sleep(3)
             salir = True
- 
+ def main():
+
+
+
+ main()
 
 
 
