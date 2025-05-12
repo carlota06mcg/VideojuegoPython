@@ -10,4 +10,4 @@ class ListaNombres:
 
     def obtener_nombre_entrenador(lista_nombres_entrenadores):
         aleatorio_entrenador = random.choice(lista_nombres_entrenadores)
-        return aleatorio_entrenador.
+        return aleatorio_entrenador
