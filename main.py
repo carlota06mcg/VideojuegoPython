@@ -82,6 +82,13 @@ def main():
     while menu == False:
         menu()
         opcion_menu = input("Escoge una opcion")
+        if opcion_menu == 1:
+            print()
+        if opcion_menu == 2:
+            print()
+        if opcion_menu == 3:
+            digishop()
+        
     
         
 
