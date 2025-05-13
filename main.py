@@ -2,6 +2,8 @@ import time
 import random
 from listaNombres import ListaNombres
 from digipymon import Digipymon
+from jugador import Jugador
+from inventario import Inventario
 def menu():
     print("Introduce 1 si quieres buscar un digipymon")
     print("Introduce 2 si quieres luchar contra un entrenador")
@@ -75,12 +77,23 @@ def main():
             print()
         if opcion_menu == 3:
             digishop()
-        
+        if opcion_menu == 4:
+            inventario1.usar_objeto
+        if opcion_menu == 5:
+            inventario1.__init__
+        if opcion_menu == 6:
+            digipymon1.__str__
+        if opcion_menu == 7:
+            print("Saliendo del juego..")
+            print("Gracias por jugar :)")
+            time.sleep(3)
+            salir = True 
     
         
 
 
 main()
+
 
 
 
