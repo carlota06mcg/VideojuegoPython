@@ -1,7 +1,4 @@
 import time
-import random
-from listaNombres import ListaNombres
-from digipymon import Digipymon
 def menu():
     print("Introduce 1 si quieres buscar un digipymon")
     print("Introduce 2 si quieres luchar contra un entrenador")
@@ -10,17 +7,6 @@ def menu():
     print("Introduce 5 si quieres consultar el inventario")
     print("Introduce 6 si quieres consultar digipymon")
     print("Introduce 7 si quieres salir")
-
-def buscar_digipymon_aleatorio():
-    lista = ListaNombres()
-    nombre = lista.obtener_nombre_digipymon()
-    vida = random.randint(10, 20)
-    ataque = random.randint(1, 10)
-    nivel = random.randint(1, 3)
-    tipo = random.choice(["aire", "fuego", "agua"])
-    digioymon1 = Digipymon(nombre, vida, ataque, tipo, nivel)
-
-
 
 def digishop(jugador, inventario): 
     print("Bienvenido a la DigiShop {jugador.nombre}")
@@ -63,16 +49,32 @@ def digishop(jugador, inventario):
             time.sleep(3)
             salir = True
 def main():
+    inventario1 = Inventario()
+    digipymon1 = Digipymon()
     salir = False
     while menu == False:
         menu()
         opcion_menu = input("Escoge una opcion")
         if opcion_menu == 1:
             print()
-        if opcion_menu == 2:
+        elif opcion_menu == 2:
             print()
-        if opcion_menu == 3:
+        elif opcion_menu == 3:
             digishop()
+        elif opcion_menu == 4:
+            print()
+        elif opcion_menu == 5:
+            inventario1.usar_objetos
+        elif opcion_menu == 6:
+            digipymon1.__str__
+        elif opcion_menu == 7:
+            print("Saliendo del juego.....")
+            print("Gracias por jugar :)")
+            time.sleep(3)
+            menu = True
+        else:
+            print("Escriba una opcion correcta")
+
         
     
         
