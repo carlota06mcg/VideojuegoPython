@@ -2,6 +2,9 @@ import time
 import random
 from listaNombres import ListaNombres
 from digipymon import Digipymon
+from enemigo import Enemigo
+from jugador import Jugador
+from inventario import Inventario
 def menu():
     print("Introduce 1 si quieres buscar un digipymon")
     print("Introduce 2 si quieres luchar contra un entrenador")
@@ -18,7 +21,19 @@ def buscar_digipymon_aleatorio():
     ataque = random.randint(1, 10)
     nivel = random.randint(1, 3)
     tipo = random.choice(["aire", "fuego", "agua"])
-    digioymon1 = Digipymon(nombre, vida, ataque, tipo, nivel)
+    digipymon1 = Digipymon(nombre, vida, ataque, tipo, nivel)
+    return digipymon1
+
+def buscar_digipymon(jugador : Jugador, inventario):
+    digipymon = buscar_digipymon_aleatorio()
+    print(f"has encontrado un {digipymon.nombre} salvaje")
+    prob = 100 - digipymon * 10
+    print(f"Tu probabilidad de captura: {prob}%")
+
+    if jugador.
+
+
+
 
 
 
@@ -27,8 +42,8 @@ def digishop(jugador, inventario):
     print("Tienes {jugador.monedas} monedas")  
     time.sleep(3)
     salir = False
-    jugador1 = jugador()
-    inventario1 = inventario()
+    jugador1 = Jugador()
+    inventario1 = Inventario()
     while salir == False:
         print("Pulse 1 si quieres comprar digipyballs: 5 digicoins  ")
         print("Pulse 2 si quieres comprar pocion: 3 digicoins  ")
