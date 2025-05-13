@@ -1,4 +1,7 @@
 import time
+import random
+from listaNombres import ListaNombres
+from digipymon import Digipymon
 def menu():
     print("Introduce 1 si quieres buscar un digipymon")
     print("Introduce 2 si quieres luchar contra un entrenador")
@@ -7,6 +10,17 @@ def menu():
     print("Introduce 5 si quieres consultar el inventario")
     print("Introduce 6 si quieres consultar digipymon")
     print("Introduce 7 si quieres salir")
+
+def buscar_digipymon_aleatorio():
+    lista = ListaNombres()
+    nombre = lista.obtener_nombre_digipymon()
+    vida = random.randint(10, 20)
+    ataque = random.randint(1, 10)
+    nivel = random.randint(1, 3)
+    tipo = random.choice(["aire", "fuego", "agua"])
+    digioymon1 = Digipymon(nombre, vida, ataque, tipo, nivel)
+
+
 
 def digishop(jugador, inventario): 
     print("Bienvenido a la DigiShop {jugador.nombre}")
@@ -48,7 +62,7 @@ def digishop(jugador, inventario):
             print("Saliendo del juego...")
             time.sleep(3)
             salir = True
- def main():
+def main():
     salir = False
     while menu == False:
         menu()
@@ -57,7 +71,7 @@ def digishop(jugador, inventario):
         
 
 
- main()
+main()
 
 
 
