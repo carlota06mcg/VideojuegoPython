@@ -30,7 +30,7 @@ def buscar_digipymon(jugador : Jugador, inventario):
     prob = 100 - digipymon * 10
     print(f"Tu probabilidad de captura: {prob}%")
 
-    if jugador.
+    if jugador.cantidad_digipymon
 
 
 
@@ -82,13 +82,6 @@ def main():
     while menu == False:
         menu()
         opcion_menu = input("Escoge una opcion")
-        if opcion_menu == 1:
-            print()
-        if opcion_menu == 2:
-            print()
-        if opcion_menu == 3:
-            digishop()
-        
     
         
 
