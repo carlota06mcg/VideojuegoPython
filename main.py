@@ -49,7 +49,12 @@ def digishop(jugador, inventario):
             time.sleep(3)
             salir = True
  def main():
-
+    salir = False
+    while menu == False:
+        menu()
+        opcion_menu = input("Escoge una opcion")
+    
+        
 
 
  main()
