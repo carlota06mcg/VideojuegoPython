@@ -34,9 +34,6 @@ def buscar_digipymon(jugador : Jugador, inventario):
 
 
 
-
-
-
 def digishop(jugador, inventario): 
     print("Bienvenido a la DigiShop {jugador.nombre}")
     print("Tienes {jugador.monedas} monedas")  
@@ -78,10 +75,30 @@ def digishop(jugador, inventario):
             time.sleep(3)
             salir = True
 def main():
+    inventario1 = Inventario()
+    digipymon1 = Digipymon()
     salir = False
-    while menu == False:
+    while salir == False:
         menu()
         opcion_menu = input("Escoge una opcion")
+        if(opcion_menu == 1):
+            print()
+        elif(opcion_menu == 2):
+            print()
+        elif(opcion_menu == 3):
+            digishop()
+        elif(opcion_menu == 4):
+            inventario1.usar_objetos
+        elif(opcion_menu == 5):
+            for nombre, cantidad in inventario1.objetos.items{}
+                print(nombre, cantidad)
+        elif(opcion_menu == 6):
+            digipymon1.__str__
+        elif(opcion_menu == 7):
+            salir = True
+        else:
+            print("Escoge una opcion correcta")
+
     
         
 
