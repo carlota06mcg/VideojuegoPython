@@ -103,7 +103,7 @@ def digishop(jugador1: Jugador, inventario1: Inventario):
             else:
                 print("No tienes suficiente dinero")
         if opcion_digishop == 4:
-            print("Saliendo del juego...")
+            print("Saliendo de la tienda... ")
             time.sleep(3)
             salir = True
 
@@ -161,7 +161,7 @@ def main():
         menu()
         opcion_menu = int(input("Escoge una opcion"))
         if opcion_menu == 1:
-            print()
+            buscar_digipymon()
         elif opcion_menu == 2:
             print()
         elif opcion_menu == 3:
