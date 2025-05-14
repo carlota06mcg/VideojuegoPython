@@ -5,6 +5,8 @@ from digipymon import Digipymon
 from enemigo import Enemigo
 from jugador import Jugador
 from inventario import Inventario
+
+
 def menu():
     print("Introduce 1 si quieres buscar un digipymon")
     print("Introduce 2 si quieres luchar contra un entrenador")
@@ -13,6 +15,7 @@ def menu():
     print("Introduce 5 si quieres consultar el inventario")
     print("Introduce 6 si quieres consultar digipymon")
     print("Introduce 7 si quieres salir")
+
 
 def buscar_digipymon_aleatorio():
     lista = ListaNombres()
@@ -23,6 +26,7 @@ def buscar_digipymon_aleatorio():
     tipo = random.choice(["aire", "fuego", "agua"])
     digipymon1 = Digipymon(nombre, vida, ataque, tipo, nivel)
     return digipymon1
+
 
 def buscar_digipymon(jugador : Jugador, inventario : Inventario):
     digipymon = buscar_digipymon_aleatorio()
@@ -49,9 +53,16 @@ def buscar_digipymon(jugador : Jugador, inventario : Inventario):
             print(f"El digipymon que has capturado es {digipymon.nombre}")
             inventario.usar_objeto("digipyball")
     else:
+        time.sleep(2)
         print("Has elegido no capturar el digipyball!")
         print("Decides huir sin nada")
         
+
+def usar_item(inventario : Inventario, jugador : Jugador):
+    for nombre, cantidad in inventario.objetos.items():
+        print(nombre, cantidad)
+
+    
 
 
 def digishop(jugador, inventario): 
@@ -95,6 +106,7 @@ def digishop(jugador, inventario):
             time.sleep(3)
             salir = True
 
+
 def combate():
     listaNombres1 = ListaNombres()
     jugador1 = Jugador()
@@ -131,8 +143,6 @@ def combate():
 
         
 
-
-
 def main():
     inventario1 = Inventario()
     digipymon1 = Digipymon()
@@ -149,7 +159,7 @@ def main():
         elif(opcion_menu == 4):
             inventario1.usar_objetos
         elif(opcion_menu == 5):
-            for nombre, cantidad in inventario1.objetos.items{}
+            for nombre, cantidad in inventario1.objetos.items():
                 print(nombre, cantidad)
         elif(opcion_menu == 6):
             digipymon1.__str__
@@ -157,9 +167,6 @@ def main():
             salir = True
         else:
             print("Escoge una opcion correcta")
-
-    
-        
 
 
 main()
