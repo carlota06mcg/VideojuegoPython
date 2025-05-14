@@ -35,9 +35,23 @@ def buscar_digipymon(jugador : Jugador, inventario : Inventario):
     print("Pulsa 'n' para continuar sin capturarlo")
 
     if opcion == "s":
-        if digi
+        time.sleep(2)
+        print("Capturando...")
+        if inventario.objetos["digipyball"] > 0 and jugador.cantidad_digipymon < 6:
+            digipymon_capturado = random.randint(1, 100)
+            if digipymon_capturado > prob:
+                print("No has capturado digipymon!")
+                inventario.usar_objeto("digipyball") 
 
-
+        else:
+            print("Has capturado un digipymon!! :3")
+            jugador.añadir_digipymon(digipymon)
+            print(f"El digipymon que has capturado es {digipymon.nombre}")
+            inventario.usar_objeto("digipyball")
+    else:
+        print("Has elegido no capturar el digipyball!")
+        print("Decides huir sin nada")
+        
 
 
 def digishop(jugador, inventario): 
