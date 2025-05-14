@@ -2,6 +2,7 @@ import time
 import random
 from listaNombres import ListaNombres
 from digipymon import Digipymon
+from enemigo import Enemigo
 from jugador import Jugador
 from inventario import Inventario
 def menu():
@@ -21,6 +22,18 @@ def buscar_digipymon_aleatorio():
     nivel = random.randint(1, 3)
     tipo = random.choice(["aire", "fuego", "agua"])
     digipymon1 = Digipymon(nombre, vida, ataque, tipo, nivel)
+    return digipymon1
+
+def buscar_digipymon(jugador : Jugador, inventario):
+    digipymon = buscar_digipymon_aleatorio()
+    print(f"has encontrado un {digipymon.nombre} salvaje")
+    prob = 100 - digipymon * 10
+    print(f"Tu probabilidad de captura: {prob}%")
+
+    if jugador.cantidad_digipymon
+
+
+
 
 
 
@@ -65,35 +78,15 @@ def digishop(jugador, inventario):
             time.sleep(3)
             salir = True
 def main():
-    inventario1 = Inventario()
-    digipymon1 = Digipymon()
     salir = False
     while menu == False:
         menu()
         opcion_menu = input("Escoge una opcion")
-        if opcion_menu == 1:
-            print()
-        if opcion_menu == 2:
-            print()
-        if opcion_menu == 3:
-            digishop()
-        if opcion_menu == 4:
-            inventario1.usar_objeto
-        if opcion_menu == 5:
-            inventario1.__init__
-        if opcion_menu == 6:
-            digipymon1.__str__
-        if opcion_menu == 7:
-            print("Saliendo del juego..")
-            print("Gracias por jugar :)")
-            time.sleep(3)
-            salir = True 
     
         
 
 
 main()
-
 
 
 
