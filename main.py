@@ -99,11 +99,36 @@ def combate():
     listaNombres1 = ListaNombres()
     jugador1 = Jugador()
     enemigo1 = Enemigo()
+    digipymon1 = Digipymon()
     print("Tu enemigo es " + listaNombres1.nombre)
-    if(jugador1.cantidad_digipymon):
     for jugador1.cantidad_digipymon in range:
         enemigo1.añadir_digipymon
-    print("¿Quieres abandonar el combate?")
+    abandonar = input("Quieres abandonar el combate s/n")
+    if abandonar == "s":
+        jugador1.digicoins - 1
+    elif abandonar == "n":
+         for i in range(0, jugador1.cantidad_digipymon - 1):
+             
+             if jugador1.lista_digipymon[i].ataque > enemigo1.lista_digipymons[i].ataque:
+                jugador1.lista_digipymon[i].vida - enemigo1.lista_digipymons[i].ataque 
+                victoria = victoria + 1
+                print("Has gando este combate")
+             else:
+                diferencia = enemigo1.lista_digipymons[i].ataque - jugador1.lista_digipymon[i].ataque
+                jugador1.lista_digipymon[i].vida - diferencia
+                derrota = derrota + 1
+                print("Has perdido este combate")
+         if victoria > derrota:
+             resultado_victoria = victoria - derrota
+
+             print("Has ganado el combate ")
+             print("Has ganado " + resultado_victoria + ("digicoins"))
+             jugador1.digicoins + resultado_victoria
+        
+    else:
+        print("Introduzca una opcion valida")
+
+
         
 
 
