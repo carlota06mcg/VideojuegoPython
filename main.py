@@ -20,7 +20,7 @@ def buscar_digipymon_aleatorio():
     ataque = random.randint(1, 10)
     nivel = random.randint(1, 3)
     tipo = random.choice(["aire", "fuego", "agua"])
-    digioymon1 = Digipymon(nombre, vida, ataque, tipo, nivel)
+    digipymon1 = Digipymon(nombre, vida, ataque, tipo, nivel)
 
 
 
