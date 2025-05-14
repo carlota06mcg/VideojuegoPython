@@ -82,7 +82,7 @@ def digishop(jugador, inventario):
         opcion_digishop = input("Elige una opcion")
         if opcion_digishop == "1":
             if jugador1.digicoins >= 5:
-                jugador1.digicoins - 5
+                jugador1.digicoins -= 5
                 inventario1.añadir_objetos.append("Digiball", 1)
                 print("Has comprado una Digiball")
             else:
@@ -90,7 +90,7 @@ def digishop(jugador, inventario):
 
         if opcion_digishop == "2":
             if jugador1.digicoins >= 3:
-                jugador1.digicoins - 3
+                jugador1.digicoins -= 3
                 inventario1.añadir_objetos.append("Pocion", 1)
                 print("Has comprado una pocion")
             else:
@@ -98,7 +98,7 @@ def digishop(jugador, inventario):
 
         if opcion_digishop == "3":
             if jugador1.digicoins >= 4:
-                jugador1.digicoins - 4
+                jugador1.digicoins -= 4
                 inventario1.añadir_objetos.append("Anabolizantes")
                 print("Has comprado un anabolizante")
             else:
@@ -119,7 +119,7 @@ def combate():
         enemigo1.añadir_digipymon
     abandonar = input("Quieres abandonar el combate s/n")
     if abandonar == "s":
-        jugador1.digicoins - 1
+        jugador1.digicoins -= 1
     elif abandonar == "n":
          for i in range(0, jugador1.cantidad_digipymon - 1):
              victoria = 0
