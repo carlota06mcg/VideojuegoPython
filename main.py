@@ -24,13 +24,19 @@ def buscar_digipymon_aleatorio():
     digipymon1 = Digipymon(nombre, vida, ataque, tipo, nivel)
     return digipymon1
 
-def buscar_digipymon(jugador : Jugador, inventario):
+def buscar_digipymon(jugador : Jugador, inventario : Inventario):
     digipymon = buscar_digipymon_aleatorio()
-    print(f"has encontrado un {digipymon.nombre} salvaje")
+    print(f"Has encontrado un {digipymon.nombre} salvaje")
     prob = 100 - digipymon * 10
     print(f"Tu probabilidad de captura: {prob}%")
 
-    if jugador.cantidad_digipymon
+    opcion = input("Quieres capturar un digipymon??")
+    print("Pulsa 's' para capturarlo")
+    print("Pulsa 'n' para continuar sin capturarlo")
+
+    if opcion == "s":
+        if digi
+
 
 
 
