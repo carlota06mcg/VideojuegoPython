@@ -30,7 +30,7 @@ def buscar_digipymon_aleatorio():
     return digipymon1
 
 
-def buscar_digipymon(jugador : Jugador, inventario : Inventario):
+def buscar_digipymon(jugador1 : Jugador, inventario1 : Inventario):
     digipymon = buscar_digipymon_aleatorio()
     print(f"Has encontrado un {digipymon.nombre} salvaje")
     prob = 100 - digipymon * 10
@@ -43,17 +43,17 @@ def buscar_digipymon(jugador : Jugador, inventario : Inventario):
     if opcion == "s":
         time.sleep(2)
         print("Capturando...")
-        if inventario.objetos["digipyball"] > 0 and jugador.cantidad_digipymon < 6:
+        if inventario1.objetos["digipyball"] > 0 and jugador1.cantidad_digipymon < 6:
             digipymon_capturado = random.randint(1, 100)
             if digipymon_capturado > prob:
                 print("No has capturado digipymon!")
-                inventario.usar_objeto("digipyball") 
+                inventario1.usar_objeto("digipyball") 
 
         else:
             print("Has capturado un digipymon!! :3")
-            jugador.añadir_digipymon(digipymon)
+            jugador1.añadir_digipymon(digipymon)
             print(f"El digipymon que has capturado es {digipymon.nombre}")
-            inventario.usar_objeto("digipyball")
+            inventario1.usar_objeto("digipyball")
     else:
         time.sleep(2)
         print("Has elegido no capturar el digipyball!")
@@ -161,9 +161,9 @@ def main():
         menu()
         opcion_menu = int(input("Escoge una opcion"))
         if opcion_menu == 1:
-            buscar_digipymon()
+            buscar_digipymon(jugador1, inventario1)
         elif opcion_menu == 2:
-            print()
+            combate(jugador1)
         elif opcion_menu == 3:
             digishop(jugador1, inventario1)
         elif(opcion_menu == "4"):
