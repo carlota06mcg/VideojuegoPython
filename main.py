@@ -20,11 +20,12 @@ def menu():
 
 def buscar_digipymon_aleatorio():
     lista = ListaNombres()
+    lista_tipos = ["aire", "fuego", "agua"]
     nombre = lista.obtener_nombre_digipymon()
     vida = random.randint(10, 20)
     ataque = random.randint(1, 10)
     nivel = random.randint(1, 3)
-    tipo = random.choice(["aire", "fuego", "agua"])
+    tipo = random.choice(lista_tipos)
     digipymon1 = Digipymon(nombre, vida, ataque, tipo, nivel)
     return digipymon1
 
@@ -66,13 +67,11 @@ def usar_item(inventario : Inventario, jugador : Jugador):
     
 
 
-def digishop(jugador, inventario): 
+def digishop(jugador1: Jugador, inventario1: Inventario): 
     print("Bienvenido a la DigiShop {jugador.nombre}")
     print("Tienes {jugador.monedas} monedas")  
     time.sleep(3)
     salir = False
-    jugador1 = Jugador()
-    inventario1 = Inventario()
     while salir == False:
         print("----------Tienda----------")
         print("Pulse 1 si quieres comprar digipyballs: 5 digicoins  ")
@@ -109,11 +108,10 @@ def digishop(jugador, inventario):
             salir = True
 
 
-def combate():
+def combate(jugador1: Jugador):
     listaNombres1 = ListaNombres()
-    jugador1 = Jugador()
     enemigo1 = Enemigo()
-    digipymon1 = Digipymon()
+    digipymon1 = buscar_digipymon_aleatorio()
     print("Tu enemigo es " + listaNombres1.nombre)
     for jugador1.cantidad_digipymon in range:
         enemigo1.añadir_digipymon
@@ -153,7 +151,8 @@ def combate():
 
 def main():
     inventario1 = Inventario()
-    digipymon1 = Digipymon()
+    jugador1 = Jugador("David")
+    digipymon1 = buscar_digipymon_aleatorio()
     salir = False
     while salir == False:
         menu()
@@ -163,7 +162,7 @@ def main():
         elif(opcion_menu == "2"):
             print()
         elif(opcion_menu == "3"):
-            digishop()
+            digishop(jugador1, inventario1)
         elif(opcion_menu == "4"):
             inventario1.usar_objetos
         elif(opcion_menu == "5"):
