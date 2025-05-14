@@ -80,7 +80,7 @@ def digishop(jugador, inventario):
         print("Pulse 3 si quieres comprar anabolizantes: 4 digicoins  ")
         print("Pulse 4 si quieres salir")
         opcion_digishop = input("Elige una opcion")
-        if opcion_digishop == 1:
+        if opcion_digishop == "1":
             if jugador1.digicoins >= 5:
                 jugador1.digicoins - 5
                 inventario1.añadir_objetos.append("Digiball", 1)
@@ -88,7 +88,7 @@ def digishop(jugador, inventario):
             else:
                 print("No tienes suficientes monedas")
 
-        if opcion_digishop == 2:
+        if opcion_digishop == "2":
             if jugador1.digicoins >= 3:
                 jugador1.digicoins - 3
                 inventario1.añadir_objetos.append("Pocion", 1)
@@ -96,14 +96,14 @@ def digishop(jugador, inventario):
             else:
                 print("No tienes suficiente dinero")
 
-        if opcion_digishop == 3:
+        if opcion_digishop == "3":
             if jugador1.digicoins >= 4:
                 jugador1.digicoins - 4
                 inventario1.añadir_objetos.append("Anabolizantes")
                 print("Has comprado un anabolizante")
             else:
                 print("No tienes suficiente dinero")
-        if opcion_digishop == 4:
+        if opcion_digishop == "4":
             print("Saliendo del juego...")
             time.sleep(3)
             salir = True
@@ -158,20 +158,20 @@ def main():
     while salir == False:
         menu()
         opcion_menu = input("Escoge una opcion")
-        if(opcion_menu == 1):
+        if(opcion_menu == "1"):
             print()
-        elif(opcion_menu == 2):
+        elif(opcion_menu == "2"):
             print()
-        elif(opcion_menu == 3):
+        elif(opcion_menu == "3"):
             digishop()
-        elif(opcion_menu == 4):
+        elif(opcion_menu == "4"):
             inventario1.usar_objetos
-        elif(opcion_menu == 5):
+        elif(opcion_menu == "5"):
             for nombre, cantidad in inventario1.objetos.items():
                 print(nombre, cantidad)
-        elif(opcion_menu == 6):
+        elif(opcion_menu == "6"):
             print(digipymon1)
-        elif(opcion_menu == 7):
+        elif(opcion_menu == "7"):
             salir = True
         else:
             print("Escoge una opcion correcta")
