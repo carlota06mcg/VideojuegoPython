@@ -7,4 +7,4 @@ class Enemigo:
 
     def añadir_digipymon(self, digipymon):
         self.lista_digipymons.append(digipymon)
-        self.cantidad_digipymon += 1 
+        self.cantidad_digipymon = self.cantidad_digipymon = 1 

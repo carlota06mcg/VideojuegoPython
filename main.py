@@ -166,14 +166,14 @@ def main():
             combate(jugador1)
         elif opcion_menu == 3:
             digishop(jugador1, inventario1)
-        elif(opcion_menu == "4"):
+        elif(opcion_menu == 4):
             inventario1.usar_objetos
         elif opcion_menu == 5:
             for nombre, cantidad in inventario1.objetos.items():
                 print(f"{nombre} : {cantidad}")
-        elif(opcion_menu == "6"):
+        elif(opcion_menu == 6):
             print(digipymon1)
-        elif(opcion_menu == "7"):
+        elif(opcion_menu == 7):
             salir = True
         else:
             print("Escoge una opcion correcta")

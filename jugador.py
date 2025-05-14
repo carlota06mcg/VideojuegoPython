@@ -7,7 +7,7 @@ class Jugador:
 
     def añadir_digipymon(self, nombre):
         self.lista_digipymon.append(nombre)
-        self.cantidad_digipymon += 1
+        self.cantidad_digipymon = self.cantidad_digipymon + 1
         return nombre
 
     def consultar_digipymon(self, nombre):
