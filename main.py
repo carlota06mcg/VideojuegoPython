@@ -6,6 +6,7 @@ from enemigo import Enemigo
 from jugador import Jugador
 from inventario import Inventario
 def menu():
+    print("----------Menu----------")
     print("Introduce 1 si quieres buscar un digipymon")
     print("Introduce 2 si quieres luchar contra un entrenador")
     print("Introduce 3 si quieres ir a la tienda")
@@ -62,6 +63,7 @@ def digishop(jugador, inventario):
     jugador1 = Jugador()
     inventario1 = Inventario()
     while salir == False:
+        print("----------Tienda----------")
         print("Pulse 1 si quieres comprar digipyballs: 5 digicoins  ")
         print("Pulse 2 si quieres comprar pocion: 3 digicoins  ")
         print("Pulse 3 si quieres comprar anabolizantes: 4 digicoins  ")
@@ -127,11 +129,6 @@ def combate():
         
     else:
         print("Introduzca una opcion valida")
-
-
-        
-
-
 
 def main():
     inventario1 = Inventario()
