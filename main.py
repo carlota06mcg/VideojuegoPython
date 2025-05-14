@@ -122,6 +122,8 @@ def combate():
         jugador1.digicoins - 1
     elif abandonar == "n":
          for i in range(0, jugador1.cantidad_digipymon - 1):
+             victoria = 0
+             derrota = 0
              
              if jugador1.lista_digipymon[i].ataque > enemigo1.lista_digipymons[i].ataque:
                 jugador1.lista_digipymon[i].vida - enemigo1.lista_digipymons[i].ataque 
@@ -138,6 +140,8 @@ def combate():
              print("Has ganado el combate ")
              print("Has ganado " + resultado_victoria + ("digicoins"))
              jugador1.digicoins + resultado_victoria
+             victoria = 0
+             derrota = 0
         
     else:
         print("Introduzca una opcion valida")
@@ -166,7 +170,7 @@ def main():
             for nombre, cantidad in inventario1.objetos.items():
                 print(nombre, cantidad)
         elif(opcion_menu == 6):
-            digipymon1.__str__
+            print(digipymon1)
         elif(opcion_menu == 7):
             salir = True
         else:
