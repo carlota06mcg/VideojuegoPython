@@ -80,6 +80,20 @@ def digishop(jugador, inventario):
             print("Saliendo del juego...")
             time.sleep(3)
             salir = True
+
+def combate():
+    listaNombres1 = ListaNombres()
+    jugador1 = Jugador()
+    enemigo1 = Enemigo()
+    print("Tu enemigo es " + listaNombres1.nombre)
+    if(jugador1.cantidad_digipymon):
+    for jugador1.cantidad_digipymon in range:
+        enemigo1.añadir_digipymon
+    print("¿Quieres abandonar el combate?")
+        
+
+
+
 def main():
     inventario1 = Inventario()
     digipymon1 = Digipymon()
