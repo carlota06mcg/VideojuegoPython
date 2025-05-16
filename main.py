@@ -63,6 +63,8 @@ def buscar_digipymon(jugador1 : Jugador, inventario1 : Inventario):
 def usar_item(inventario : Inventario, jugador : Jugador):
     for nombre, cantidad in inventario.objetos.items():
         print(nombre, cantidad)
+        objeto = input("Dime el nombre del objeto")
+        inventario.usar_objeto(objeto)
 
     
 
@@ -97,7 +99,7 @@ def digishop(jugador1: Jugador, inventario1: Inventario):
 
         if opcion_digishop == 3:
             if jugador1.digicoins >= 4:
-                jugador1.digicoins -= 4
+                jugador1.digicoins = jugador1.digicoins - 4
                 inventario1.añadir_objeto("anabolizantes")
                 print("Has comprado un anabolizante")
             else:
@@ -137,15 +139,13 @@ def combate(jugador1: Jugador):
 
              print("Has ganado el combate ")
              print("Has ganado " + str(resultado_victoria) + ("digicoins"))
-             jugador1.digicoins + resultado_victoria
+             jugador1.digicoins = jugador1.digicoins + resultado_victoria
              victoria = 0
              derrota = 0
         
     else:
         print("Introduzca una opcion valida")
-
-
-        
+    
 def main():
     print("Bievenido a Digipymon! ")
     nombre = input("Como te lamas? ")
@@ -165,13 +165,15 @@ def main():
         elif opcion_menu == 3:
             digishop(jugador1, inventario1)
         elif(opcion_menu == 4):
-            inventario1.usar_objetos
+            usar_item(inventario1, jugador1)
         elif opcion_menu == 5:
             usar_item(inventario1, jugador1)
             print("Mostrar inventario")
         elif(opcion_menu == 6):
             print(digipymon1)
         elif(opcion_menu == 7):
+            print("Saliendo del juego..")
+            time.sleep(3)
             salir = True
         else:
             print("Escoge una opcion correcta")
