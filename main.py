@@ -111,15 +111,15 @@ def digishop(jugador1: Jugador, inventario1: Inventario):
 def combate(jugador1: Jugador):
     listaNombres1 = ListaNombres()
     enemigo1 = Enemigo()
-    digipymon1 = buscar_digipymon_aleatorio()
-    print("Tu enemigo es " + listaNombres1.nombre)
+    print("Tu enemigo es " + listaNombres1.obtener_nombre_entrenador)
     victoria = 0
     derrota = 0
     for _ in range(jugador1.cantidad_digipymon):
-        enemigo1.añadir_digipymon
+        digipymon1 = buscar_digipymon_aleatorio()
+        enemigo1.añadir_digipymon(digipymon1)
     abandonar = input("Quieres abandonar el combate s/n")
     if abandonar == "s":
-        jugador1.digicoins -= 1
+        jugador1.digicoins = jugador1.digicoins - 1
     elif abandonar == "n":
          
          for i in range(0, jugador1.cantidad_digipymon - 1):
@@ -136,7 +136,7 @@ def combate(jugador1: Jugador):
              resultado_victoria = victoria - derrota
 
              print("Has ganado el combate ")
-             print("Has ganado " + resultado_victoria + ("digicoins"))
+             print("Has ganado " + str(resultado_victoria) + ("digicoins"))
              jugador1.digicoins + resultado_victoria
              victoria = 0
              derrota = 0
@@ -150,6 +150,10 @@ def main():
     print("Bievenido a Digipymon! ")
     nombre = input("Como te lamas? ")
     print("Bienvenido entrando al menu... ")
+    inicial = input("Quieres capturar a tu primer inicial s/n?")
+    if inicial == "s":
+        buscar_digipymon(jugador1, inventario1)
+        
     inventario1 = Inventario()
     jugador1 = Jugador(nombre)
     digipymon1 = buscar_digipymon_aleatorio()
