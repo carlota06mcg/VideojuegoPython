@@ -113,16 +113,16 @@ def combate(jugador1: Jugador):
     enemigo1 = Enemigo()
     digipymon1 = buscar_digipymon_aleatorio()
     print("Tu enemigo es " + listaNombres1.nombre)
-    for jugador1.cantidad_digipymon in range:
+    victoria = 0
+    derrota = 0
+    for _ in range(jugador1.cantidad_digipymon):
         enemigo1.añadir_digipymon
     abandonar = input("Quieres abandonar el combate s/n")
     if abandonar == "s":
         jugador1.digicoins -= 1
     elif abandonar == "n":
+         
          for i in range(0, jugador1.cantidad_digipymon - 1):
-             victoria = 0
-             derrota = 0
-             
              if jugador1.lista_digipymon[i].ataque > enemigo1.lista_digipymons[i].ataque:
                 jugador1.lista_digipymon[i].vida - enemigo1.lista_digipymons[i].ataque 
                 victoria = victoria + 1
@@ -146,9 +146,6 @@ def combate(jugador1: Jugador):
 
 
         
-
-
-
 def main():
     print("Bievenido a Digipymon! ")
     nombre = input("Como te lamas? ")
@@ -169,8 +166,7 @@ def main():
         elif(opcion_menu == 4):
             inventario1.usar_objetos
         elif opcion_menu == 5:
-            for nombre, cantidad in inventario1.objetos.items():
-                print(f"{nombre} : {cantidad}")
+            usar_item(inventario1, jugador1)
         elif(opcion_menu == 6):
             print(digipymon1)
         elif(opcion_menu == 7):
