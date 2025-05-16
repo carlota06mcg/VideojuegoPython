@@ -69,7 +69,7 @@ def usar_item(inventario : Inventario, jugador : Jugador):
 
 def digishop(jugador1: Jugador, inventario1: Inventario): 
     print("Bienvenido a la DigiShop " + jugador1.nombre)
-    print("Tienes " + str(jugador1.digicoins) + "monedas")  
+    print("Tienes " + str(jugador1.digicoins) + " monedas")  
     time.sleep(3)
     salir = False
     while salir == False:
@@ -78,11 +78,11 @@ def digishop(jugador1: Jugador, inventario1: Inventario):
         print("Pulse 2 si quieres comprar pocion: 3 digicoins  ")
         print("Pulse 3 si quieres comprar anabolizantes: 4 digicoins  ")
         print("Pulse 4 si quieres salir")
-        opcion_digishop = int (input("Elige una opcion"))
+        opcion_digishop = int (input("Elige una opcion "))
         if opcion_digishop == 1:
             if jugador1.digicoins >= 5:
                 jugador1.digicoins = jugador1.digicoins - 5
-                inventario1.añadir_objeto("Digiball", 1)
+                inventario1.añadir_objeto("digiball", 1)
                 print("Has comprado una Digiball")
             else:
                 print("No tienes suficientes monedas")
@@ -90,7 +90,7 @@ def digishop(jugador1: Jugador, inventario1: Inventario):
         if opcion_digishop == 2:
             if jugador1.digicoins >= 3:
                 jugador1.digicoins = jugador1.digicoins - 3
-                inventario1.añadir_objeto("Pocion", 1)
+                inventario1.añadir_objeto("pocion", 1)
                 print("Has comprado una pocion")
             else:
                 print("No tienes suficiente dinero")
@@ -98,7 +98,7 @@ def digishop(jugador1: Jugador, inventario1: Inventario):
         if opcion_digishop == 3:
             if jugador1.digicoins >= 4:
                 jugador1.digicoins -= 4
-                inventario1.añadir_objeto("Anabolizantes")
+                inventario1.añadir_objeto("anabolizantes")
                 print("Has comprado un anabolizante")
             else:
                 print("No tienes suficiente dinero")
@@ -159,7 +159,7 @@ def main():
     salir = False
     while salir == False:
         menu()
-        opcion_menu = int(input("Escoge una opcion"))
+        opcion_menu = int(input("Escoge una opcion "))
         if opcion_menu == 1:
             buscar_digipymon(jugador1, inventario1)
         elif opcion_menu == 2:
