@@ -149,14 +149,11 @@ def combate(jugador1: Jugador):
 def main():
     print("Bievenido a Digipymon! ")
     nombre = input("Como te lamas? ")
-    print("Bienvenido entrando al menu... ")
-    inicial = input("Quieres capturar a tu primer inicial s/n?")
-    if inicial == "s":
-        buscar_digipymon(jugador1, inventario1)
-        
     inventario1 = Inventario()
     jugador1 = Jugador(nombre)
     digipymon1 = buscar_digipymon_aleatorio()
+    print(f"Has recibido un incial  {digipymon1}")
+    print("Bienvenido entrando al menu... ")
     salir = False
     while salir == False:
         menu()
@@ -171,6 +168,7 @@ def main():
             inventario1.usar_objetos
         elif opcion_menu == 5:
             usar_item(inventario1, jugador1)
+            print("Mostrar inventario")
         elif(opcion_menu == 6):
             print(digipymon1)
         elif(opcion_menu == 7):
