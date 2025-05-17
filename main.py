@@ -37,9 +37,10 @@ def buscar_digipymon(jugador1 : Jugador, inventario1 : Inventario):
     prob = 100 - digipymon.nivel * 10
     print(f"Tu probabilidad de captura: {prob}%")
 
-    opcion = input("Quieres capturar un digipymon??")
+
     print("Pulsa 's' para capturarlo")
     print("Pulsa 'n' para continuar sin capturarlo")
+    opcion = input("Quieres capturar un digipymon??")
 
     if opcion == "s":
         time.sleep(2)
