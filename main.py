@@ -235,7 +235,7 @@ def main():
             print(inventario1)
 
         elif(opcion_menu == 6):
-            print(digipymon1)
+            jugador1.consultar_digipymon()
             
         elif(opcion_menu == 7):
             print("Saliendo del juego..")
