@@ -70,8 +70,11 @@ def usar_item(inventario : Inventario, jugador : Jugador):
     objeto = input("Escribe el nombre del objeto que quieras utilizar: ").lower
     print(".")
     time.sleep(1)
-    print(".")
+    print(". .")
     time.sleep(1)
+    print(". . .")
+    time.sleep(1)
+
     if objeto == "pocion":
         if "pocion" in inventario.objetos:
             inventario.usar_objeto("pocion")
@@ -80,8 +83,25 @@ def usar_item(inventario : Inventario, jugador : Jugador):
             for digipymon in jugador.lista_digipymon:
                 if digipymon.nombre == usarEnDigipymon:
                     digipymon.vida += 20
-                    print
+                    print(f"{digipymon} tiene ahora +20 de vida")
+                else:
+                    print("No existe el digipymon")       
+        else:
+            print("No tienes pociones")
 
+    if objeto == "anabolizantes":
+        if "anabolizantes" in inventario.objetos:
+            inventario.usar_objeto("anabolizantes")
+            print(jugador.consultar_digipymon())
+            usarEnDigipymon = input("¿En qué digipymon quieres aplicar los anabolizantes??")
+            for digipymon in jugador.lista_digipymon:
+                if digipymon.nombre == usarEnDigipymon:
+                    digipymon.ataque += 10
+                    print(f"{digipymon} tiene ahora +10 de ataque")
+                else:
+                    print("No existe el digipymon") 
+        else:
+            print("No tienes anabolizantes")
 
     
 
