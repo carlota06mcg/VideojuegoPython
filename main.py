@@ -117,36 +117,45 @@ def combate(jugador1: Jugador):
     print(f"Tu enmigo es  {nombre_enemigo} ")
     victoria = 0
     derrota = 0
+
     for _ in range(jugador1.cantidad_digipymon):
         digipymon1 = buscar_digipymon_aleatorio()
         enemigo1.añadir_digipymon(digipymon1)
-    abandonar = input("Quieres abandonar el combate s/n")
+
+    abandonar = input("Quieres abandonar el combate s/n ")
+    
     if abandonar == "s":
         jugador1.digicoins = jugador1.digicoins - 1
+        print("Has huido del combate. Pierdes 1 digicoin.")
+
     elif abandonar == "n":
-         
-         for i in range(jugador1.cantidad_digipymon):
-             if jugador1.lista_digipymon[i].ataque > enemigo1.lista_digipymons[i].ataque:
+        for i in range(jugador1.cantidad_digipymon):
+            if jugador1.lista_digipymon[i].ataque > enemigo1.lista_digipymons[i].ataque:
                 perder_vida = jugador1.lista_digipymon[i].vida - enemigo1.lista_digipymons[i].ataque 
-                digipymon1.vida = digipymon1.vida - perder_vida
+                jugador1.lista_digipymon[i].vida = perder_vida
                 victoria = victoria + 1
-                print("Has gando este combate")
-             else:
+                print("Has ganado este combate")
+            else:
                 diferencia = enemigo1.lista_digipymons[i].ataque - jugador1.lista_digipymon[i].ataque
                 jugador1.lista_digipymon[i].vida = jugador1.lista_digipymon[i].vida - diferencia
                 derrota = derrota + 1
                 print("Has perdido este combate")
-         if victoria > derrota:
-             resultado_victoria = victoria - derrota
 
-             print("Has ganado el combate ")
-             print("Has ganado " + str(resultado_victoria) + ("digicoins"))
-             jugador1.digicoins = jugador1.digicoins + resultado_victoria
-             victoria = 0
-             derrota = 0
-        
+        if victoria > derrota:
+            resultado_victoria = victoria
+            print("Has ganado el combate")
+            print("Has ganado " + str(resultado_victoria) + " digicoins")
+            jugador1.digicoins = jugador1.digicoins + resultado_victoria
+        elif derrota > victoria:
+            print("Has perdido el combate")
+            print("Has perdido " + str(derrota) + " digicoins")
+            jugador1.digicoins = jugador1.digicoins - derrota
+        else:
+            print("Empate. No ganas ni pierdes digicoins.")
+
     else:
-        print("Introduzca una opcion valida")
+        print("Introduzca una opción válida")
+
     
 def main():
     print("Bievenido a Digipymon! ")

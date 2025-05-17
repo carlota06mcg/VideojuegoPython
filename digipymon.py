@@ -6,4 +6,4 @@ class Digipymon:
         self.tipo = tipo
         self.nivel = nivel
     def __str__(self):
-        return f"Nombre: {self.nombre}, vida: {self.vida}, ataque: {self.ataque}, tipo: {self.nivel}, nivel"
+        return f"Nombre: {self.nombre}, vida: {self.vida}, ataque: {self.ataque}, tipo: {self.tipo}, nivel: {self.nivel}"
