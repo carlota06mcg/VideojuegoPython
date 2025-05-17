@@ -113,7 +113,7 @@ def digishop(jugador1: Jugador, inventario1: Inventario):
 def combate(jugador1: Jugador):
     listaNombres1 = ListaNombres()
     enemigo1 = Enemigo()
-    print("Tu enemigo es " + listaNombres1.obtener_nombre_entrenador)
+    print("Tu enemigo es " + listaNombres1)
     victoria = 0
     derrota = 0
     for _ in range(jugador1.cantidad_digipymon):
@@ -124,9 +124,10 @@ def combate(jugador1: Jugador):
         jugador1.digicoins = jugador1.digicoins - 1
     elif abandonar == "n":
          
-         for i in range(0, jugador1.cantidad_digipymon - 1):
+         for i in range(jugador1.cantidad_digipymon):
              if jugador1.lista_digipymon[i].ataque > enemigo1.lista_digipymons[i].ataque:
-                jugador1.lista_digipymon[i].vida - enemigo1.lista_digipymons[i].ataque 
+                perder_vida = jugador1.lista_digipymon[i].vida - enemigo1.lista_digipymons[i].ataque 
+                digipymon1.vida = digipymon1.vida -perder_vida
                 victoria = victoria + 1
                 print("Has gando este combate")
              else:
