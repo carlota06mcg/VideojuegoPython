@@ -15,10 +15,10 @@ class Inventario:
             print(f"Has usado {nombre}")
 
         elif nombre in self.objetos:
-                self.cantidad[nombre] -= 1
+            self.cantidad[nombre] -= 1
                 
         else:
-                print("No tienes este objeto")
+            print("No tienes este objeto")
 
     def __str__(self):
          return f"Inventario: {self.objetos}"
