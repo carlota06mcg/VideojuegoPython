@@ -76,9 +76,9 @@ def usar_item(inventario : Inventario, jugador : Jugador):
     time.sleep(1)
 
     if objeto == "pocion":
-        if "pocion" in inventario.objetos:
-            inventario.usar_objeto("pocion")
-            print(jugador.consultar_digipymon())
+        if inventario.objetos.get("pocion", 0) > 0:
+            #inventario.usar_objeto("pocion")
+            jugador.consultar_digipymon()
             usarEnDigipymon = input("¿En qué digipymon quieres aplicar las pocion??")
             for digipymon in jugador.lista_digipymon:
                 if digipymon.nombre == usarEnDigipymon:
@@ -90,9 +90,9 @@ def usar_item(inventario : Inventario, jugador : Jugador):
             print("No tienes pociones")
 
     if objeto == "anabolizantes":
-        if "anabolizantes" in inventario.objetos:
-            inventario.usar_objeto("anabolizantes")
-            print(jugador.consultar_digipymon())
+        if inventario.objetos.get("anabolizantes", 0) > 0:
+            #inventario.usar_objeto("anabolizantes")
+            jugador.consultar_digipymon()
             usarEnDigipymon = input("¿En qué digipymon quieres aplicar los anabolizantes??")
             for digipymon in jugador.lista_digipymon:
                 if digipymon.nombre == usarEnDigipymon:
@@ -243,4 +243,14 @@ def main():
             print("Escoge una opcion correcta")
 
 
-main()
+if __name__ == "__main__":
+    main()
+
+
+
+
+
+
+
+
+
