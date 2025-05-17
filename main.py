@@ -16,6 +16,7 @@ def menu():
     print("Introduce 5 si quieres consultar el inventario")
     print("Introduce 6 si quieres consultar digipymon")
     print("Introduce 7 si quieres salir")
+    ("-----------------------------")
 
 
 def buscar_digipymon_aleatorio():
@@ -61,10 +62,26 @@ def buscar_digipymon(jugador1 : Jugador, inventario1 : Inventario):
         
 
 def usar_item(inventario : Inventario, jugador : Jugador):
-    for nombre, cantidad in inventario.objetos.items():
-        print(nombre, cantidad)
-        objeto = input("Dime el nombre del objeto")
-        inventario.usar_objeto(objeto)
+    print("----------Usar Items----------")
+    print(" · digipyballs")
+    print(" · pocion")
+    print(" · anabolizantes")
+    print("------------------------------")
+    objeto = input("Escribe el nombre del objeto que quieras utilizar: ").lower
+    print(".")
+    time.sleep(1)
+    print(".")
+    time.sleep(1)
+    if objeto == "pocion":
+        if "pocion" in inventario.objetos:
+            inventario.usar_objeto("pocion")
+            print(jugador.consultar_digipymon())
+            usarEnDigipymon = input("¿En qué digipymon quieres aplicar las pocion??")
+            for digipymon in jugador.lista_digipymon:
+                if digipymon.nombre == usarEnDigipymon:
+                    digipymon.vida += 20
+                    print
+
 
     
 
@@ -76,10 +93,20 @@ def digishop(jugador1: Jugador, inventario1: Inventario):
     salir = False
     while salir == False:
         print("----------Tienda----------")
-        print("Pulse 1 si quieres comprar digipyballs: 5 digicoins  ")
-        print("Pulse 2 si quieres comprar pocion: 3 digicoins  ")
-        print("Pulse 3 si quieres comprar anabolizantes: 4 digicoins  ")
-        print("Pulse 4 si quieres salir")
+        print("1. ---> Digipyballs:   ")
+        print("        Precio: 5 digicoins")
+        print("        Bonus: +20 de vida")
+        print(" ")
+        print("2. ---> Poción:   ")
+        print("        Precio: 3 digicoins")
+        print("        Bonus: +20 de vida")
+        print(" ")
+        print("3. ---> Anabolizantes:   ")
+        print("        Precio: 4 digicoins")
+        print("        Bonus: +10 de ataque")
+        print(" ")
+        print("4. ---> EXIT")
+        print("---------------------------")
         opcion_digishop = int (input("Elige una opcion "))
         if opcion_digishop == 1:
             if jugador1.digicoins >= 5:
