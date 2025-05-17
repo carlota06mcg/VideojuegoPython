@@ -211,6 +211,7 @@ def main():
     inventario1 = Inventario()
     jugador1 = Jugador(nombre)
     digipymon1 = buscar_digipymon_aleatorio()
+    jugador1.añadir_digipymon(digipymon1)
     print(f"Has recibido un incial  {digipymon1}")
     print("Bienvenido entrando al menu... ")
     salir = False

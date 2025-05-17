@@ -15,7 +15,7 @@ class Inventario:
             print(f"Has usado {nombre}")
 
         elif nombre in self.objetos:
-            self.cantidad[nombre] -= 1
+            self.objetos[nombre] -= 1
                 
         else:
             print("No tienes este objeto")
