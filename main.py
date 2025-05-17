@@ -21,7 +21,7 @@ def menu():
 
 def buscar_digipymon_aleatorio():
     lista = ListaNombres()
-    lista_tipos = ["aire", "fuego", "agua"]
+    lista_tipos = ["planta", "fuego", "agua"]
     nombre = lista.obtener_nombre_digipymon()
     vida = random.randint(10, 20)
     ataque = random.randint(1, 10)
@@ -164,8 +164,8 @@ def combate(jugador1: Jugador):
     print(f"Tu enmigo es  {nombre_enemigo} ")
     victoria = 0
     derrota = 0
-
-    for _ in range(jugador1.cantidad_digipymon):
+    enemigo1.lista_digipymons = []
+    for _ in range(0, jugador1.cantidad_digipymon):
         digipymon1 = buscar_digipymon_aleatorio()
         enemigo1.añadir_digipymon(digipymon1)
 
@@ -176,30 +176,31 @@ def combate(jugador1: Jugador):
         print("Has huido del combate. Pierdes 1 digicoin.")
 
     elif abandonar == "n":
+
         for i in range(jugador1.cantidad_digipymon):
             if jugador1.lista_digipymon[i].ataque > enemigo1.lista_digipymons[i].ataque:
                 perder_vida = jugador1.lista_digipymon[i].vida - enemigo1.lista_digipymons[i].ataque 
                 jugador1.lista_digipymon[i].vida = perder_vida
                 victoria = victoria + 1
                 print("Has ganado este combate")
-            else:
+            elif jugador1.lista_digipymon[i].ataque < enemigo1.lista_digipymons[i].ataque:
                 diferencia = enemigo1.lista_digipymons[i].ataque - jugador1.lista_digipymon[i].ataque
                 jugador1.lista_digipymon[i].vida = jugador1.lista_digipymon[i].vida - diferencia
                 derrota = derrota + 1
                 print("Has perdido este combate")
+            else:
+                print("Empate. ")
 
         if victoria > derrota:
-            resultado_victoria = victoria
             print("Has ganado el combate")
-            print("Has ganado " + str(resultado_victoria) + " digicoins")
-            jugador1.digicoins = jugador1.digicoins + resultado_victoria
+            print("Has ganado " + str(victoria) + " digicoins")
+            jugador1.digicoins = jugador1.digicoins + victoria
         elif derrota > victoria:
             print("Has perdido el combate")
             print("Has perdido " + str(derrota) + " digicoins")
             jugador1.digicoins = jugador1.digicoins - derrota
         else:
             print("Empate. No ganas ni pierdes digicoins.")
-
     else:
         print("Introduzca una opción válida")
 
