@@ -11,7 +11,7 @@ class Inventario:
     
     def usar_objeto(self, nombre):
         if nombre in self.objetos and self.objetos[nombre] > 0:
-            self.objetos[self.nombre] -= 1
+            self.objetos[nombre] -= 1
             print(f"Has usado {nombre}")
 
         elif nombre in self.objetos:
