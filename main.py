@@ -207,7 +207,7 @@ def combate(jugador1: Jugador):
     
 def main():
     print("Bievenido a Digipymon! ")
-    nombre = input("Como te lamas? ")
+    nombre = input("Como te llamas? ")
     inventario1 = Inventario()
     jugador1 = Jugador(nombre)
     digipymon1 = buscar_digipymon_aleatorio()
