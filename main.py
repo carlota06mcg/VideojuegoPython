@@ -36,10 +36,9 @@ def buscar_digipymon(jugador1 : Jugador, inventario1 : Inventario):
     print(f"Has encontrado un {digipymon.nombre} salvaje")
     prob = 100 - digipymon.nivel * 10
     print(f"Tu probabilidad de captura: {prob}%")
-
-    opcion = input("Quieres capturar un digipymon??")
     print("Pulsa 's' para capturarlo")
     print("Pulsa 'n' para continuar sin capturarlo")
+    opcion = input("Quieres capturar un digipymon??")
 
     if opcion == "s":
         time.sleep(2)
@@ -75,11 +74,14 @@ def usar_item(inventario : Inventario, jugador : Jugador):
     print(". . .")
     time.sleep(1)
 
+    if objeto == "digipyball":
+        print("No puedes utilizar las digipyballs! Elige otra opcion")
+
     if objeto == "pocion":
         if inventario.objetos.get("pocion", 0) > 0:
             #inventario.usar_objeto("pocion")
             jugador.consultar_digipymon()
-            usarEnDigipymon = input("¿En qué digipymon quieres aplicar las pocion??")
+            usarEnDigipymon = input("¿En qué digipymon quieres aplicar la pocion??")
             for digipymon in jugador.lista_digipymon:
                 if digipymon.nombre == usarEnDigipymon:
                     digipymon.vida += 20
@@ -102,8 +104,6 @@ def usar_item(inventario : Inventario, jugador : Jugador):
                     print("No existe el digipymon") 
         else:
             print("No tienes anabolizantes")
-
-    
 
 
 def digishop(jugador1: Jugador, inventario1: Inventario): 
@@ -246,12 +246,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-
-
-
-
-
-
-
