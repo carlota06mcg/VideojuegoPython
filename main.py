@@ -237,6 +237,7 @@ def main():
         elif(opcion_menu == 6):
             jugador1.consultar_digipymon()
             
+            
         elif(opcion_menu == 7):
             print("Saliendo del juego..")
             time.sleep(3)
