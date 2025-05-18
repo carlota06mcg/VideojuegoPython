@@ -173,6 +173,24 @@ def digishop(jugador1: Jugador, inventario1: Inventario):
             time.sleep(3)
             salir = True
 
+def tipos_digipymon(tipo_digiJugador, tipo_digiEnemigo):
+    multiplicador = 1
+    if tipo_digiJugador == "planta" and tipo_digiEnemigo == "agua":
+        multiplicador = 2
+    elif tipo_digiJugador == "agua" and tipo_digiEnemigo == "fuego":
+        multiplicador = 2
+    elif tipo_digiJugador == "fuego" and tipo_digiEnemigo == "planta":
+        multiplicador = 2
+    elif tipo_digiJugador == "agua" and tipo_digiEnemigo == "planta":
+        multiplicador = 0.5
+    elif tipo_digiJugador == "fuego" and tipo_digiEnemigo == "agua":
+        multiplicador = 0.5
+    elif tipo_digiJugador == "planta" and tipo_digiEnemigo == "fuego":
+        multiplicador = 0.5
+
+    
+
+
 
 """
     Función de "Combate", en la cual lucharemos contra un enemigo. 
