@@ -174,6 +174,11 @@ def digishop(jugador1: Jugador, inventario1: Inventario):
             salir = True
 
 
+"""
+    Función de "Combate", en la cual lucharemos contra un enemigo. 
+    Nos da opción de abandonar el combate o de luchar contra el enemigo.
+    El combate podemos ganarlo, perderlo o empatar.
+"""
 def combate(jugador1: Jugador):
     listaNombres1 = ListaNombres()
     nombre_enemigo = listaNombres1.obtener_nombre_entrenador()
@@ -218,10 +223,15 @@ def combate(jugador1: Jugador):
             jugador1.digicoins = jugador1.digicoins - derrota
         else:
             print("Empate. No ganas ni pierdes digicoins.")
+
     else:
         print("Introduzca una opción válida")
 
-    
+
+"""
+    Función "Main", en la cual implementamos todas las funciones creadas anteriormente.
+    Llamamos a nuestro "Menú" para que el usuario introduzca por pantalla la opción que quiera.
+"""
 def main():
     print("Bievenido a Digipymon! ")
     nombre = input("Como te llamas? ")
