@@ -6,7 +6,9 @@ from enemigo import Enemigo
 from jugador import Jugador
 from inventario import Inventario
 
-
+"""
+    Función de "menú" creada con prints, el cual usamos en el main para imrpimir las opciones.
+"""
 def menu():
     print("----------Menu----------")
     print("Introduce 1 si quieres buscar un digipymon")
@@ -19,6 +21,10 @@ def menu():
     ("-----------------------------")
 
 
+"""
+    Funcion de "buscar digipymon aleatorio" para poder generar aleatoriamente un digipymon.
+    Utilizamos random.randint para generar un numero aleatorio entre los parámetros que hayamos puesto.
+"""
 def buscar_digipymon_aleatorio():
     lista = ListaNombres()
     lista_tipos = ["planta", "fuego", "agua"]
@@ -30,7 +36,12 @@ def buscar_digipymon_aleatorio():
     digipymon1 = Digipymon(nombre, vida, ataque, tipo, nivel)
     return digipymon1
 
-
+"""
+    Funcion de "buscar digipymon", utilizada para buscar un digipymon aleatorio con la funcion de "buscar digipymon aleatorio".
+    Pasamos por parámetros: jugador1 : Jugador, inventario1 : Inventario para acceder a los atributos.
+    La variable 'prob = 100 - digipymon.nivel * 10' es utilizada para calcular la probabilidad de capturar al digipymon de forma aleatoria.
+    Creamos una sentencia condicional if, en la cual si pulsamos "s" (y las condiciones se cumplen), se captura el digipymon y lo imprime tras almacenarlo en el inventario.
+"""
 def buscar_digipymon(jugador1 : Jugador, inventario1 : Inventario):
     digipymon = buscar_digipymon_aleatorio()
     print(f"Has encontrado un {digipymon.nombre} salvaje")
