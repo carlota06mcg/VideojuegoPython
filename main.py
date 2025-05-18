@@ -70,7 +70,11 @@ def buscar_digipymon(jugador1 : Jugador, inventario1 : Inventario):
         time.sleep(1)
         print("Decides huir sin nada")
         
-
+"""
+    Función "usar item" en la cual accedemos al inventario y podemos usar los objetos que hayamos comprado en la tienda en el digipymon que queramos.
+    Una vez escribamos el nombre del item que queramos usar, si está en nuestro inventario nos preguntará en que digipymon queremos usarlo.
+    Si usamos un item, dependiendo de la mejora que aporte se le suma al digipymon de nuestra elección.
+"""
 def usar_item(inventario : Inventario, jugador : Jugador):
     print("----------Usar Items----------")
     print(" · digipyballs")
@@ -90,7 +94,6 @@ def usar_item(inventario : Inventario, jugador : Jugador):
 
     if objeto == "pocion":
         if inventario.objetos.get("pocion", 0) > 0:
-            #inventario.usar_objeto("pocion")
             jugador.consultar_digipymon()
             usarEnDigipymon = input("¿En qué digipymon quieres aplicar la pocion??")
             for digipymon in jugador.lista_digipymon:
@@ -104,7 +107,6 @@ def usar_item(inventario : Inventario, jugador : Jugador):
 
     if objeto == "anabolizantes":
         if inventario.objetos.get("anabolizantes", 0) > 0:
-            #inventario.usar_objeto("anabolizantes")
             jugador.consultar_digipymon()
             usarEnDigipymon = input("¿En qué digipymon quieres aplicar los anabolizantes??")
             for digipymon in jugador.lista_digipymon:
@@ -117,6 +119,11 @@ def usar_item(inventario : Inventario, jugador : Jugador):
             print("No tienes anabolizantes")
 
 
+"""
+    Función de "digishop", la cual utilizamos para comprar objetos que se almacenarán en nuestro inventario.
+    Para poder comprar items debemos trener digicoins, sino no podremos comprar items.
+    Cuando compramos un item, este se almacena en nuestro inventario y nos quita digicoins dependiendo del coste.
+"""
 def digishop(jugador1: Jugador, inventario1: Inventario): 
     print("Bienvenido a la DigiShop " + jugador1.nombre)
     print("Tienes " + str(jugador1.digicoins) + " monedas")  
@@ -126,7 +133,6 @@ def digishop(jugador1: Jugador, inventario1: Inventario):
         print("----------Tienda----------")
         print("1. ---> Digipyballs:   ")
         print("        Precio: 5 digicoins")
-        print("        Bonus: +20 de vida")
         print(" ")
         print("2. ---> Poción:   ")
         print("        Precio: 3 digicoins")
