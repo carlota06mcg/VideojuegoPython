@@ -5,7 +5,7 @@
 import random
 class ListaNombres:
     """
-    Función __init__.
+    Función "__init__".
     Inicializamos 'lista_nombres_digipymon' y 'lista_nombres_entrenadores'
     """
     def __init__(self):
