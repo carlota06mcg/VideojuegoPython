@@ -173,24 +173,30 @@ def digishop(jugador1: Jugador, inventario1: Inventario):
             time.sleep(3)
             salir = True
 
+"""
+    Funcion que devuelve la variable multiplicador para que 
+    al tener ventaja de tipo el Digipymon tenga mas ataque
+    y por lo tanto haga mas daño
+"""
+
 def tipos_digipymon(tipo_digiJugador, tipo_digiEnemigo):
-    multiplicador = 1
+    
     if tipo_digiJugador == "planta" and tipo_digiEnemigo == "agua":
-        multiplicador = 2
+        return  2
     elif tipo_digiJugador == "agua" and tipo_digiEnemigo == "fuego":
-        multiplicador = 2
+        return 2
     elif tipo_digiJugador == "fuego" and tipo_digiEnemigo == "planta":
-        multiplicador = 2
+        return 2
     elif tipo_digiJugador == "agua" and tipo_digiEnemigo == "planta":
-        multiplicador = 0.5
+        return 0.5
     elif tipo_digiJugador == "fuego" and tipo_digiEnemigo == "agua":
-        multiplicador = 0.5
+        return 0.5
     elif tipo_digiJugador == "planta" and tipo_digiEnemigo == "fuego":
-        multiplicador = 0.5
+        return 0.5
+    else:
+        return 1
 
     
-
-
 
 """
     Función de "Combate", en la cual lucharemos contra un enemigo. 
@@ -198,52 +204,78 @@ def tipos_digipymon(tipo_digiJugador, tipo_digiEnemigo):
     El combate podemos ganarlo, perderlo o empatar.
 """
 def combate(jugador1: Jugador):
+    # Se obtiene el nombre del entrenador enemigo y se crea el objeto Enemigo
     listaNombres1 = ListaNombres()
     nombre_enemigo = listaNombres1.obtener_nombre_entrenador()
     enemigo1 = Enemigo(nombre_enemigo)
-    print(f"Tu enmigo es  {nombre_enemigo} ")
+    print(f"Tu enemigo es {nombre_enemigo}")
+    
+    # Inicializamos contadores de victoria y derrota
     victoria = 0
     derrota = 0
+    
+    # Creamos la lista de Digipymon del enemigo según la cantidad que tiene el jugador
     enemigo1.lista_digipymons = []
-    for _ in range(0, jugador1.cantidad_digipymon):
+    for _ in range(jugador1.cantidad_digipymon):
         digipymon1 = buscar_digipymon_aleatorio()
         enemigo1.añadir_digipymon(digipymon1)
-
-    abandonar = input("Quieres abandonar el combate s/n ")
     
-    if abandonar == "s":
-        jugador1.digicoins = jugador1.digicoins - 1
+    abandonar = input("¿Quieres abandonar el combate? (s/n): ")
+    
+    if abandonar.lower() == "s":
+        jugador1.digicoins -= 1
         print("Has huido del combate. Pierdes 1 digicoin.")
+        return  # Termina la función
 
-    elif abandonar == "n":
-
+    elif abandonar.lower() == "n":
         for i in range(jugador1.cantidad_digipymon):
-            if jugador1.lista_digipymon[i].ataque > enemigo1.lista_digipymons[i].ataque:
-                perder_vida = jugador1.lista_digipymon[i].vida - enemigo1.lista_digipymons[i].ataque 
-                jugador1.lista_digipymon[i].vida = perder_vida
-                victoria = victoria + 1
-                print("Has ganado este combate")
-            elif jugador1.lista_digipymon[i].ataque < enemigo1.lista_digipymons[i].ataque:
-                diferencia = enemigo1.lista_digipymons[i].ataque - jugador1.lista_digipymon[i].ataque
-                jugador1.lista_digipymon[i].vida = jugador1.lista_digipymon[i].vida - diferencia
-                derrota = derrota + 1
-                print("Has perdido este combate")
+            # Referenciamos el Digipymon del jugador y el enemigo para cada ronda ronda
+            jugador_digi = jugador1.lista_digipymon[i]
+            enemigo_digi = enemigo1.lista_digipymons[i]
+            
+            # Obtenemos los tipos de cada uno
+            tipo_jugador = jugador_digi.tipo
+            tipo_enemigo = enemigo_digi.tipo
+
+            print(f"\nCombate {i + 1}:")
+            print(f"{jugador_digi.nombre} (tipo: {tipo_jugador}, ataque base: {jugador_digi.ataque}) vs {enemigo_digi.nombre} (tipo: {tipo_enemigo}, ataque base: {enemigo_digi.ataque})")
+            
+            # Calculamos el multiplicador de cada uno usando la función de tipos
+            jugador_multiplicador = tipos_digipymon(tipo_jugador, tipo_enemigo)
+            enemigo_multiplicador = tipos_digipymon(tipo_enemigo, tipo_jugador)
+            
+            # Calculamos el ataque final (aumento de ataque) de cada uno
+            aumento_ataque_jugador = jugador_digi.ataque * jugador_multiplicador
+            aumento_ataque_enemigo = enemigo_digi.ataque * enemigo_multiplicador
+            
+            print(f"Ataque final: {jugador_digi.nombre}: {aumento_ataque_jugador:.1f}  |  {enemigo_digi.nombre}: {aumento_ataque_enemigo:.1f}")
+            
+            # Comparamos los ataques finales y aplicamos daño (se resta la cantidad correspondiente de la vida)
+            if aumento_ataque_jugador > aumento_ataque_enemigo:
+                enemigo_digi.vida -= aumento_ataque_jugador
+                victoria += 1
+                print("¡Has ganado este combate!")
+            elif aumento_ataque_jugador < aumento_ataque_enemigo:
+                jugador_digi.vida -= aumento_ataque_enemigo
+                derrota += 1
+                print("Has perdido este combate.")
             else:
-                print("Empate. ")
-
+                print("Empate en este combate.")
+        
+        # Resultado final del combate
+        print("\nResultado Final:")
         if victoria > derrota:
-            print("Has ganado el combate")
-            print("Has ganado " + str(victoria) + " digicoins")
-            jugador1.digicoins = jugador1.digicoins + victoria
+            print(f"¡Has ganado el combate total! Ganas {victoria} digicoins.")
+            jugador1.digicoins += victoria
         elif derrota > victoria:
-            print("Has perdido el combate")
-            print("Has perdido " + str(derrota) + " digicoins")
-            jugador1.digicoins = jugador1.digicoins - derrota
+            print(f"Has perdido el combate total. Pierdes {derrota} digicoins.")
+            jugador1.digicoins -= derrota
         else:
-            print("Empate. No ganas ni pierdes digicoins.")
-
+            print("El combate ha terminado en empate. No ganas ni pierdes digicoins.")
     else:
-        print("Introduzca una opción válida")
+        print("Opción inválida.")
+
+
 
 
 """
